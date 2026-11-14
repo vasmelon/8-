@@ -1,0 +1,96 @@
+#include <iostream>
+#include <vector>
+
+/**
+ * <summary>
+ * Вычисляет среднее значение массива.
+ * </summary>
+ * <param name="a">Массив чисел.</param>
+ * <returns>Среднее значение.</returns>
+ */
+double average(const std::vector<int>& a)
+{
+    int sum = 0;
+    for (int x : a)
+    {
+        sum += x;
+    }
+    return static_cast<double>(sum) / a.size();
+}
+
+/**
+ * <summary>
+ * Находит максимальное число.
+ * </summary>
+ * <param name="a">Массив чисел.</param>
+ * <returns>Максимальное число.</returns>
+ */
+int maximum(const std::vector<int>& a)
+{
+    int max = a[0];
+    for (int x : a)
+    {
+        if (x > max)
+        {
+            max = x;
+        }
+    }
+    return max;
+}
+
+/**
+ * <summary>
+ * Находит минимальное число.
+ * </summary>
+ * <param name="a">Массив чисел.</param>
+ * <returns>Минимальное число.</returns>
+ */
+int minimum(const std::vector<int>& a)
+{
+    int min = a[0];
+
+    for (int x : a)
+    {
+        if (x < min)
+        {
+            min = x;
+        }
+    }
+    return min;
+}
+
+/**
+ * <summary>
+ * Подсчитывает количество положительных чисел.
+ * </summary>
+ * <param name="a">Массив чисел.</param>
+ * <returns>Количество положительных чисел.</returns>
+ */
+int countPositive(const std::vector<int>& a)
+{
+    int count = 0;
+
+    for (int x : a)
+    {
+        if (x > 0)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
+/**
+ * <summary>
+ * Главная функция программы.
+ * </summary>
+ */
+int main()
+{
+    std::vector<int> numbers = { 5, 3, 4, 5, 2 };
+    std::cout << "Average: " << average(numbers) << '\n';
+    std::cout << "Maximum: " << maximum(numbers) << '\n';
+    std::cout << "Minimum: " << minimum(numbers) << '\n';
+    std::cout << "Positive: " << countPositive(numbers) << '\n';
+    return 0;
+}
