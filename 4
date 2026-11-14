@@ -1,0 +1,68 @@
+namespace задание_4
+{
+    partial class Form1
+    {
+        private System.ComponentModel.IContainer components = null;
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        private void InitializeComponent()
+        {
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnColor = new System.Windows.Forms.Button();
+            this.txtUser = new System.Windows.Forms.TextBox();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.SuspendLayout();
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(30, 100);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(160, 30);
+            this.btnSave.TabIndex = 2;
+            this.btnSave.Text = "Сохранить настройки";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnColor
+            // 
+            this.btnColor.Location = new System.Drawing.Point(210, 100);
+            this.btnColor.Name = "btnColor";
+            this.btnColor.Size = new System.Drawing.Size(160, 30);
+            this.btnColor.TabIndex = 3;
+            this.btnColor.Text = "Выбрать цвет";
+            this.btnColor.UseVisualStyleBackColor = true;
+            this.btnColor.Click += new System.EventHandler(this.btnColor_Click);
+            // 
+            // txtUser
+            // 
+            this.txtUser.Location = new System.Drawing.Point(30, 40);
+            this.txtUser.Name = "txtUser";
+            this.txtUser.Size = new System.Drawing.Size(340, 22);
+            this.txtUser.TabIndex = 1;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(420, 180);
+            this.Controls.Add(this.txtUser);
+            this.Controls.Add(this.btnColor);
+            this.Controls.Add(this.btnSave);
+            this.Name = "Form1";
+            this.Text = "Работа с реестром";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+    }
+}
