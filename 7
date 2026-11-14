@@ -1,0 +1,58 @@
+#include <iostream>
+#include <cmath>
+#include <stdexcept>
+#include <cassert>
+#include <locale>
+struct GeometryVolumes {
+    static constexpr double PI = 3.14159265358979323846;
+    static double cubeVolume(double a) {
+        if (a <= 0.0) throw std::invalid_argument("Ребро куба должно быть > 0");
+        return a * a * a;
+    }
+    static double sphereVolume(double r) {
+        if (r <= 0.0) throw std::invalid_argument("Радиус сферы должен быть > 0");
+        return (4.0 / 3.0) * PI * r * r * r;
+    }
+    static double cylinderVolume(double r, double h) {
+        if (r <= 0.0 || h <= 0.0) throw std::invalid_argument("Радиус и высота цилиндра должны быть > 0");
+        return PI * r * r * h;
+    }
+    static double coneVolume(double r, double h) {
+        if (r <= 0.0 || h <= 0.0) throw std::invalid_argument("Радиус и высота конуса должны быть > 0");
+        return (1.0 / 3.0) * PI * r * r * h;
+    }
+};
+
+bool isEqual(double a, double b, double eps = 0.0001) {
+    return std::abs(a - b) < eps;
+}
+
+// ТЕСТЫ
+void runTests() {
+    std::cout << "=== ЗАПУСК ТЕСТОВ ===\n\n";
+    // Позитивный 1
+    assert(isEqual(GeometryVolumes::cubeVolume(2.0), 8.0));
+    std::cout << "[PASS] Тест 1: Объём куба (a=2) = 8\n";
+    // Позитивный 2
+    assert(isEqual(GeometryVolumes::sphereVolume(3.0), 36.0 * GeometryVolumes::PI));
+    std::cout << "[PASS] Тест 2: Объём сферы (r=3) = 36*pi\n";
+    // Негативный 1
+    bool caught1 = false;
+    try { GeometryVolumes::cubeVolume(-1.0); }
+    catch (const std::invalid_argument&) { caught1 = true; }
+    assert(caught1);
+    std::cout << "[PASS] Тест 3: Отрицательное ребро куба вызывает исключение\n";
+    // Негативный 2
+    bool caught2 = false;
+    try { GeometryVolumes::cylinderVolume(2.0, 0.0); }
+    catch (const std::invalid_argument&) { caught2 = true; }
+    assert(caught2);
+    std::cout << "[PASS] Тест 4: Нулевая высота цилиндра вызывает исключение\n";
+    std::cout << "\n=== ВСЕ ТЕСТЫ ПРОЙДЕНЫ! ===\n";
+}
+
+int main() {
+    setlocale(LC_ALL, "Russian");
+    runTests();
+    return 0;
+}
