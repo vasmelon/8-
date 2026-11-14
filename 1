@@ -1,0 +1,25 @@
+#include <iostream>
+
+/// <summary>
+/// Вычисляет площадь прямоугольника.
+/// </summary>
+/// <param name="width">Ширина прямоугольника в метрах.</param>
+/// <param name="height">Высота прямоугольника в метрах.</param>
+/// <returns>Площадь в квадратных метрах.</returns>
+int calculateArea(int width, int height) {
+    return width * height;
+}
+
+int main() {
+    // Наведите курсор на 'auto', чтобы увидеть реальный тип переменной
+    auto message = "Площадь равна: ";
+
+    int w = 5;
+    int h = 10;
+
+    // Наведите курсор на 'calculateArea' ниже, чтобы увидеть документацию XML
+    int area = calculateArea(w, h);
+
+    std::cout << message << area << std::endl;
+    return 0;
+}
