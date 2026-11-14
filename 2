@@ -1,0 +1,17 @@
+#include <iostream>
+
+int main() {
+    int total = 0;
+    const int limit = 10;
+
+    std::cout << "Starting calculation..." << std::endl;
+    for (int i = 1; i <= 10; ++i) {
+        total += i;
+
+        if (i == 5) {
+            std::cout << "Halfway: total = " << total << std::endl;
+        }
+    }
+    std::cout << "Final total = " << total << std::endl;
+    return 0;
+}
